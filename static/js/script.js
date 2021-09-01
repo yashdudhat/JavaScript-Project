@@ -82,15 +82,54 @@ document.getElementById('scissors').remove();
 var humanChoiceDiv=document.createElement('div');
 var botChoiceDiv=document.createElement('div');
 var messageDiv=document.createElement('div');
+    humanChoiceDiv.setAttribute('id','humanImg');
+    messageDiv.setAttribute('id','messageDiv');
+    botChoiceDiv.setAttribute('id','botImg');
 
 humanChoiceDiv.innerHTML= "<img src='" + imageSrc[humanChoice] +"' height='150px' width='150px' style = 'box-shadow : 0px 10px 50px green'>";
-messageDiv.innerHTML= "<h1 style = 'color:"+ message['color'] + "; text-shadow : 0px 0px 50px "+ message['color'] +";font-size: 60px; padding:30px;'>"+message['message']+"</h1>"
+messageDiv.innerHTML= "<h1 style = 'color:"+ message['color'] + "; text-shadow : 0px 0px 50px "+ message['color'] +";font-size: 60px; padding:30px;'>"+message['message']+"</h1>"+"<button class='btn btn-danger' onclick='resetRPS()'>Play Again</button>";
 botChoiceDiv.innerHTML= "<img src='" + imageSrc[botChoise] +"' height='150px' width='150px' style = 'box-shadow : 0px 10px 50px red'>";
 
 document.getElementById('flex-box-rps-div').appendChild(humanChoiceDiv);
 document.getElementById('flex-box-rps-div').appendChild(messageDiv);
 document.getElementById('flex-box-rps-div').appendChild(botChoiceDiv);
 }
+
+function resetRPS(){
+    document.getElementById('humanImg').remove();
+    document.getElementById('botImg').remove();
+    document.getElementById('messageDiv').remove();
+
+    var rockImg = document.createElement('img');
+    rockImg.src ="static/images/rock.png";
+    rockImg.setAttribute('id','rock');
+    rockImg.setAttribute('height','150');
+    rockImg.setAttribute('width','150');
+    rockImg.setAttribute('onclick','rpsGame(this)');
+
+    var paperImg = document.createElement('img');
+    paperImg.src ="static/images/paper.png";
+    paperImg.setAttribute('id','paper');
+    paperImg.setAttribute('height','150');
+    paperImg.setAttribute('width','150');
+    paperImg.setAttribute('onclick','rpsGame(this)');
+
+    var scissorsImg = document.createElement('img');
+    scissorsImg.src ="static/images/scissors.png";
+    scissorsImg.setAttribute('id','scissors');
+    scissorsImg.setAttribute('height','150');
+    scissorsImg.setAttribute('width','150');
+    scissorsImg.setAttribute('onclick','rpsGame(this)');
+    
+    
+    document.getElementById('flex-box-rps-div').appendChild(rockImg);
+    document.getElementById('flex-box-rps-div').appendChild(paperImg);
+    document.getElementById('flex-box-rps-div').appendChild(scissorsImg);
+
+    //document.getElementById('box-rps').appendChild(reset1['rock']);
+    
+}
+
 
 // Challenge 4 : Change Button color
 
